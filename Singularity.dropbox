@@ -6,7 +6,7 @@ From: ubuntu:16.04
    /opt/dropbox/dropboxd
 
 %runscript
-   /opt/drobox/dropboxd
+   exec /opt/drobox/dropboxd
 
 %post
   apt update -y
