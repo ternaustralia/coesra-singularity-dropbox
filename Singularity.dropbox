@@ -3,18 +3,15 @@ From: ubuntu:16.04
 
 
 %startscript
-   /opt/dropbox/dropboxd
+   /usr/bin/dropbox
 
 %runscript
-   exec /opt/drobox/dropboxd
+   exec /usr/bin/dropbox
 
 %post
   apt update -y
-  apt install -y wget curl
+  apt install -y curl
 
-  mkdir /opt/dropbox
-  cd /opt/dropbox
+  curl -Lo dropbox_2019.02.14_amd64.deb https://linux.dropbox.com/packages/ubuntu/dropbox_2019.02.14_amd64.deb
+  apt install -y ./dropbox_2019.02.14_amd64.deb
 
-  curl -Lo dropbox-linux-x86_64.tar.gz https://www.dropbox.com/download?plat=lnx.x86_64
-
-  tar xzfv dropbox-linux-x86_64.tar.gz --strip 1 -C /opt/dropbox
